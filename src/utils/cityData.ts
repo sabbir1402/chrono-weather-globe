@@ -1,6 +1,6 @@
-
 import { format } from "date-fns";
 import { CloudRain, CloudSun } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 export interface City {
   id: string;
@@ -12,7 +12,7 @@ export interface City {
   weather?: {
     temperature: number;
     condition: string;
-    icon: React.ComponentType;
+    icon: string; // Changed from React.ComponentType to string
   };
 }
 
@@ -67,14 +67,9 @@ export const cities: City[] = [
   },
 ];
 
-const weatherIcons = {
-  Clear: CloudSun,
-  Clouds: CloudSun,
-  Rain: CloudRain,
-  Snow: CloudRain,
-  Thunderstorm: CloudRain,
-  Drizzle: CloudRain,
-  Mist: CloudSun,
+export const weatherIcons: Record<string, LucideIcon> = {
+  "CloudRain": CloudRain,
+  "CloudSun": CloudSun,
 };
 
 export function formatCityTime(timezone: string): string {

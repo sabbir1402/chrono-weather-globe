@@ -1,9 +1,9 @@
 
 import React from "react";
-import { City } from "@/utils/cityData";
+import { City, weatherIcons } from "@/utils/cityData";
 import { formatCityTime, formatCityDate } from "@/utils/cityData";
 import { Card, CardContent } from "@/components/ui/card";
-import { CloudRain, CloudSun } from "lucide-react";
+import { CloudSun } from "lucide-react";
 
 interface CityCardProps {
   city: City;
@@ -21,7 +21,7 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => {
     return () => clearInterval(interval);
   }, [city.timezone]);
   
-  const WeatherIcon = city.weather?.icon === "CloudRain" ? CloudRain : CloudSun;
+  const WeatherIcon = city.weather?.icon ? weatherIcons[city.weather.icon] : CloudSun;
   
   return (
     <Card className="glass overflow-hidden">
