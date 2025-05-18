@@ -1,28 +1,17 @@
 
-import React from "react";
-import Header from "@/components/Header";
-import WorldClock from "@/components/WorldClock";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
-const Index: React.FC = () => {
+export default function Index() {
   return (
-    <div className="min-h-screen pb-12">
-      <Header />
-      <main className="container mx-auto px-4">
-        <WorldClock />
-        
-        <div className="mt-12 p-6 glass rounded-xl">
-          <h2 className="text-2xl font-bold mb-4">About Chrono Weather Globe</h2>
-          <p className="mb-4">
-            Chrono Weather Globe provides real-time clock and weather information for major cities around the world. 
-            This application helps you keep track of time differences and weather conditions in different regions.
-          </p>
-          <p className="text-white/70">
-            The weather data is updated every 5 minutes, while the clocks are synchronized with each city's local time zone.
-          </p>
-        </div>
-      </main>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <h1 className="text-4xl font-bold mb-6 text-center">Welcome to Food Cart Billing System</h1>
+      <p className="text-xl mb-8 text-center max-w-md">
+        Manage your food cart inventory, add items to cart, and generate bills with ease.
+      </p>
+      <Button asChild size="lg">
+        <Link to="/billing">Open Billing System</Link>
+      </Button>
     </div>
   );
-};
-
-export default Index;
+}
